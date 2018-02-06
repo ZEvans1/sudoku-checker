@@ -104,4 +104,73 @@ gulp serve
       <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
 
-//==== 13.) bower install bootstrap --save      
+//==== 13.) bower install bootstrap --save
+
+      top of html should look like:
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="css/styles.css">
+      <script type="text/javascript" src="build/js/app.js"></script>
+
+!!//==== 14.) bower install moment --save (this can be used for time stuff)!!
+
+//==== 15.) npm install bower-files --save-dev
+
+      var lib = require('bower-files')();
+
+      gulp.task('bowerJS', function () {
+      return gulp.src(lib.ext('js').files)
+      .pipe(concat('vendor.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('./build/js'));
+      });
+
+
+      gulp.task('bowerCSS', function () {
+      return gulp.src(lib.ext('css').files)
+        .pipe(concat('vendor.css'))
+        .pipe(gulp.dest('./build/css'));
+      });
+
+      top of html can now become
+      <link rel="stylesheet" href="build/css/vendor.css">
+  <script src="build/js/vendor.min.js"></script>
+  <script type="text/javascript" src="build/js/app.js"></script>
+
+      // change lib var from before
+      var lib = require('bower-files')({
+  "overrides":{
+    "bootstrap" : {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+});
+    // combine tasks, add after js and css bowers
+    gulp.task('bower', ['bowerJS', 'bowerCSS']);
+
+    gulp.task('build', ['clean'], function(){
+  if (buildProduction) {
+    gulp.start('minifyScripts');
+  } else {
+    gulp.start('jsBrowserify');
+  }
+  gulp.start('bower');
+});
+
+
+    // concat css files
+    gulp.task("cssBuild", function() {
+  gulp.src(['css/*.css'])
+  .pipe(concat('vendor.css'))
+  .pipe(gulp.dest('./build/css'))
+});
+
+<link href="build/css/vendor.css" rel="stylesheet" type="text/css">
+
+gulp build
+gulp cssBuild
