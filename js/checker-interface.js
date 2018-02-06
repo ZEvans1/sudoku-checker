@@ -104,6 +104,6 @@ $(document).ready(function() {
     r71, r72, r73, r74, r75, r76, r77, r78, r79,
     r81, r82, r83, r84, r85, r86, r87, r88, r89,
     r91, r92, r93, r94, r95, r96, r97, r98, r99);
-    solvedSudoku.display();
+    solvedSudoku.rowCheck();
   })
 })
