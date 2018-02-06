@@ -96,3 +96,12 @@ gulp serve
           .pipe(jshint())
           .pipe(jshint.reporter('default'));
       });
+
+//==== 11.) npm install bower -g (if needed to install on machine)
+//==== 11a.) bower init
+
+//==== 12.) bower install jquery --save
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+
+//==== 13.) bower install bootstrap --save      
