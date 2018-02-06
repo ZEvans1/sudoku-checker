@@ -1,22 +1,98 @@
-1.) npm init
-2.) npm install gulp --save-dev
+make sure to use at beginning:
+npm init
+bower init
+or cloning:
+npm install
+bower install
+when ready to run:
+gulp build
+gulp serve
+
+//==== 1.) npm init === //
+//==== 2.) npm install gulp --save-dev === //
 2a.) npm install gulp -g (only needs to be run once per machine)
-3.) npm install browserify --save-dev
+//==== 3.) npm install browserify --save-dev === //
 
-var gulp = require('gulp');
+    var gulp = require('gulp');
 
-4.) npm install vinyl-source-stream --save-dev
+//==== 4.) npm install vinyl-source-stream --save-dev === //
 
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
+    var browserify = require('browserify');
+    var source = require('vinyl-source-stream');
 
-5.) gulp jsBrowserify
-6.) npm install gulp-concat --save-dev
+//==== 5.) gulp jsBrowserify === //
+//==== 6.) npm install gulp-concat --save-dev === //
 
-var concat = require('gulp-concat');
+    var concat = require('gulp-concat');
 
-gulp.task('concatInterface', function() {
-  return gulp.src(['./js/checker-interface.js', './js/signup-interface.js'])
-    .pipe(concat('allConcat.js'))
-    .pipe(gulp.dest('./tmp'));
-});
+    //place above the browserify
+    gulp.task('concatInterface', function() {
+      return gulp.src(['./js/*-interface.js'])
+        .pipe(concat('allConcat.js'))
+        .pipe(gulp.dest('./tmp'));
+    });
+
+    //browserify must also be altered
+    gulp.task('jsBrowserify', ['concatInterface'], function() {
+      return browserify({ entries: ['./tmp/allConcat.js'] })
+        .bundle()
+        .pipe(source('app.js'))
+        .pipe(gulp.dest('./build/js'));
+    });
+
+//==== 7.) npm install gulp-uglify --save-dev === //
+
+      var uglify = require('gulp-uglify');
+
+      //place after browserify
+      gulp.task("minifyScripts", ["jsBrowserify"], function(){
+        return gulp.src("./build/js/app.js")
+          .pipe(uglify())
+          .pipe(gulp.dest("./build/js"));
+      });
+
+      gulp minifyScripts
+
+      gulp.task("build", function(){
+        if (buildProduction) {
+          gulp.start('minifyScripts');
+        } else {
+          gulp.start('jsBrowserify');
+        }
+      });
+
+//==== 8.) npm install gulp-util --save-dev
+
+      var utilities = require('gulp-util');
+      var buildProduction = utilities.env.production;
+      gulp build --production
+      gulp build
+
+//==== 9.) npm install del --save-dev
+
+      var del = require('del');
+
+      gulp.task("clean", function(){
+        return del(['build', 'tmp']);
+      });
+
+      //edit build task
+      gulp.task("build", ['clean'], function(){
+        if (buildProduction) {
+          gulp.start('minifyScripts');
+        } else {
+          gulp.start('jsBrowserify');
+        }
+      });
+
+//==== 10.) npm install jshint --save-dev
+            npm install gulp-jshint --save-dev
+
+      var jshint = require('gulp-jshint');
+
+      // place at bottom
+      gulp.task('jshint', function(){
+        return gulp.src(['js/*.js'])
+          .pipe(jshint())
+          .pipe(jshint.reporter('default'));
+      });

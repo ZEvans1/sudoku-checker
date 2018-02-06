@@ -29,24 +29,7 @@ function Checker(
 }
 
 Checker.prototype.display = function () {
-console.log(this.row1);
-console.log(this.row2);
-console.log(this.row3);
-console.log(this.row4);
-console.log(this.row5);
-console.log(this.row6);
-console.log(this.row7);
-console.log(this.row8);
-console.log(this.row9);
-// console.log(row1);
-// console.log(row2);
-// console.log(row3);
-// console.log(row4);
-// console.log(row5);
-// console.log(row6);
-// console.log(row7);
-// console.log(row8);
-// console.log(row9);
+
 };
 
 Checker.prototype.rowCheck = function () {
