@@ -1,0 +1,22 @@
+1.) npm init
+2.) npm install gulp --save-dev
+2a.) npm install gulp -g (only needs to be run once per machine)
+3.) npm install browserify --save-dev
+
+var gulp = require('gulp');
+
+4.) npm install vinyl-source-stream --save-dev
+
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+
+5.) gulp jsBrowserify
+6.) npm install gulp-concat --save-dev
+
+var concat = require('gulp-concat');
+
+gulp.task('concatInterface', function() {
+  return gulp.src(['./js/checker-interface.js', './js/signup-interface.js'])
+    .pipe(concat('allConcat.js'))
+    .pipe(gulp.dest('./tmp'));
+});

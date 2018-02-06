@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <title>Sudoku Checker</title>
+  </head>
+  <body>
+    <h1>Sudoku Checker</h1>
+    <h3>Enter your solved sudoku here: </h3>
+    <form id="sudoku-form">
+      <div class="row">
+        <input id="r11" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r12" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r13" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r14" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r15" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r16" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r17" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r18" class="grid-form" type="number" placeholder="11" value="1">
+        <input id="r19" class="grid-form" type="number" placeholder="11" value="1">
+      </div>
+      <div class="row">
+        <input id="r21" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r22" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r23" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r24" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r25" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r26" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r27" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r28" class="grid-form" type="number" placeholder="21" value="2">
+        <input id="r29" class="grid-form" type="number" placeholder="21" value="2">
+      </div>
+      <div class="row">
+        <input id="r31" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r32" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r33" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r34" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r35" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r36" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r37" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r38" class="grid-form" type="number" placeholder="31" value="3">
+        <input id="r39" class="grid-form" type="number" placeholder="31" value="3">
+      </div>
+      <br>
+      <div class="row">
+        <input id="r41" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r42" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r43" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r44" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r45" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r46" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r47" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r48" class="grid-form" type="number" placeholder="41" value="4">
+        <input id="r49" class="grid-form" type="number" placeholder="41" value="4">
+      </div>
+      <div class="row">
+        <input id="r51" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r52" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r53" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r54" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r55" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r56" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r57" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r58" class="grid-form" type="number" placeholder="51" value="5">
+        <input id="r59" class="grid-form" type="number" placeholder="51" value="5">
+      </div>
+      <div class="row">
+        <input id="r61" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r62" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r63" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r64" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r65" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r66" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r67" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r68" class="grid-form" type="number" placeholder="61" value="6">
+        <input id="r69" class="grid-form" type="number" placeholder="61" value="6">
+      </div>
+      <br>
+      <div class="row">
+        <input id="r71" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r72" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r73" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r74" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r75" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r76" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r77" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r78" class="grid-form" type="number" placeholder="71" value="7">
+        <input id="r79" class="grid-form" type="number" placeholder="71" value="7">
+      </div>
+      <div class="row">
+        <input id="r81" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r82" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r83" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r84" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r85" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r86" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r87" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r88" class="grid-form" type="number" placeholder="81" value="8">
+        <input id="r89" class="grid-form" type="number" placeholder="81" value="8">
+      </div>
+      <div class="row">
+        <input id="r91" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r92" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r93" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r94" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r95" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r96" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r97" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r98" class="grid-form" type="number" placeholder="91" value="9">
+        <input id="r99" class="grid-form" type="number" placeholder="91" value="9">
+      </div>
+      <br>
+      <button class="btn" type="submit">Check</button>
+  </form>
+  </body>
+</html>
