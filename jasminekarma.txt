@@ -1,0 +1,24 @@
+====== 1.) npm install jasmine --save-dev
+====== 2.) ./node_modules/.bin/jasmine init
+====== 3.) make the following change to the package.json file
+
+"scripts": {
+  "test": "jasmine"
+}
+
+===== 4.) npm test (to run tests)
+===== 5.) make sure --> npm install browserify --save-dev & npm install watchify --save-dev
+===== 6.) npm install karma --save-dev
+===== 7.) npm install karma-jasmine jasmine-core --save-dev
+===== 8.) npm install karma-chrome-launcher --save-dev
+===== 9.) npm install karma-cli --save-dev
+===== 10.) npm install karma-browserify --save-dev
+===== 11.) npm install karma-jquery --save-dev
+===== 12.) npm install karma-jasmine-html-reporter --save-dev
+===== 13.) karma init (do not forget!!!)
+
+make the following change to the package.json file
+
+"scripts": {
+   "test": "karma start karma.conf.js"
+ },
